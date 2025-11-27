@@ -9,26 +9,56 @@
     <title>Flowers</title>
 </head>
 <body>
+
+    <!-- === MUSIK AUTOPLAY === -->
+    <audio id="bg-music" autoplay loop muted playsinline style="display:none;">
+        <source src="lagu.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const audio = document.getElementById("bg-music");
+
+        // Coba autoplay saat halaman selesai load
+        window.addEventListener("load", () => {
+            audio.play().then(() => {
+                // Setelah sukses autoplay dalam kondisi mute, unmute setelah sedikit delay
+                setTimeout(() => {
+                    audio.muted = false;
+                }, 800);
+            }).catch(() => {
+                console.log("Autoplay diblokir, menunggu interaksi pengguna...");
+            });
+        });
+
+        // Jika autoplay tetap diblokir, aktifkan musik saat user klik pertama
+        document.body.addEventListener("click", () => {
+            audio.muted = false;
+            audio.play().catch(() => {});
+        }, { once: true });
+    </script>
+    <!-- === AKHIR MUSIK === -->
+
+
     <div class="greetings">
-    <!-- silahkan menambah kata sesuai keinginan dengan <span>text...</span -->
+        <!-- HALO>_< -->
         <span>H</span>
         <span>A</span>
         <span>L</span>
-        <span>L</span>
         <span>O</span>
-        <span>></span>
+        <span>&gt;</span>
         <span>_</span>
-        <span><</span>
-      
+        <span>&lt;</span>
     </div>
+
     <div class="description">
-        <span>Flower for u</span>
+        <span>flower for u</span>
     </div>
+
     <div class="button">
         <button>
             <a href="flower.html">Klik disini</a>
         </button>
-        
     </div>
+
 </body>
 </html>
