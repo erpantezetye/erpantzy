@@ -30,7 +30,6 @@
             100% { opacity: 0.4; text-shadow: 0 0 5px #ff6edc; }
         }
 
-
         /* ===== BACKGROUND HATI TERBANG FULL SCREEN ===== */
         body {
             overflow: hidden;
@@ -65,8 +64,7 @@
             }
         }
 
-
-        /* ===== TOMBOL LOVE BERDENYUT ===== */
+        /* ===== TOMBOL LOVE BERDENYUT + GLOW PUTIH ===== */
         .button button {
             background: none;
             border: none;
@@ -78,12 +76,17 @@
             transform: scale(1.2);
         }
 
+        /* === LOVE PUTIH & GLOW PUTIH === */
         .button button a {
             font-family: "Great Vibes", cursive;
             font-size: 70px;
             text-decoration: none;
-            color: #ff3ccf;
-            text-shadow: 0 0 15px #ff5ed9, 0 0 35px #ff34bb;
+            color: #ffffff; /* LOVE putih */
+            text-shadow: 
+                0 0 10px #ffffff,
+                0 0 25px #ffffff,
+                0 0 40px #ffffff; /* glowing putih */
+            animation: heartbeat 1.3s infinite;
         }
 
         @keyframes heartbeat {
@@ -101,7 +104,6 @@
 
     <!-- ===== BACKGROUND LOVE ===== -->
     <div class="heart-bg"></div>
-
 
     <!-- === MUSIK AUTOPLAY === -->
     <audio id="bg-music" autoplay loop muted playsinline style="display:none;">
@@ -124,7 +126,6 @@
             audio.play().catch(() => {});
         }, { once: true });
 
-
         /* ===== GENERATE HEARTS FULLSCREEN ===== */
         const container = document.querySelector(".heart-bg");
 
@@ -133,90 +134,27 @@
             h.classList.add("heart");
             h.textContent = "♥";
 
-            // posisi acak seluruh layar
             h.style.left = Math.random() * 100 + "%";
             h.style.top = Math.random() * 100 + "%";
-
-            // ukuran acak
             h.style.fontSize = (25 + Math.random() * 55) + "px";
-
-            // durasi animasi acak
             h.style.animationDuration = (4 + Math.random() * 6) + "s";
-
-            // delay acak
             h.style.animationDelay = (Math.random() * 6) + "s";
 
             container.appendChild(h);
         }
-
     </script>
-    <!-- === AKHIR MUSIK === -->
 
-
+    <!-- === GREETINGS === -->
     <div class="greetings">
-        <!-- HALO>_< -->
-        <span>H</span>
-        <span>A</span>
-        <span>L</span>
-        <span>O</span>
+        <span>h</span>
+        <span>a</span>
+        <span>i</span>
+        <span>!</span>
     </div>
 
+    <!-- === DESCRIPTION === -->
     <div class="description">
         <span>flower for u babe</span>
-    </div>
-
-    <div class="button">
-        <button>
-            <a href="flower.html">♥</a>
-        </button>
-    </div>
-
-</body>
-</html>
-
-    <script>
-        const audio = document.getElementById("bg-music");
-
-        window.addEventListener("load", () => {
-            audio.play().then(() => {
-                setTimeout(() => {
-                    audio.muted = false;
-                }, 800);
-            }).catch(() => {});
-        });
-
-        document.body.addEventListener("click", () => {
-            audio.muted = false;
-            audio.play().catch(() => {});
-        }, { once: true });
-
-
-        /* ===== GENERATE HEART BACKGROUND ===== */
-        const container = document.querySelector(".heart-bg");
-        for (let i = 0; i < 22; i++) {
-            let h = document.createElement("div");
-            h.classList.add("heart");
-            h.textContent = "♥";
-            h.style.left = Math.random() * 100 + "%";
-            h.style.fontSize = (20 + Math.random() * 40) + "px";
-            h.style.animationDuration = (4 + Math.random() * 4) + "s";
-            h.style.animationDelay = (Math.random() * 4) + "s";
-            container.appendChild(h);
-        }
-    </script>
-    <!-- === AKHIR MUSIK === -->
-
-
-    <div class="greetings">
-        <!-- HALO>_< -->
-        <span>H</span>
-        <span>A</span>
-        <span>L</span>
-        <span>O</span>
-    </div>
-
-    <div class="description">
-        <span>flower for you baby</span>
     </div>
 
     <div class="button">
