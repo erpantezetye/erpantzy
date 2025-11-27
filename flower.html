@@ -405,7 +405,21 @@
     <script src="main.js"></script>
 
     <!-- ⬅️ DITAMBAHKAN: Script ganti teks -->
-    
+    <script>
+        const texts = [
+            "this flower is for you",
+            "i love u",
+            "<3"
+        ];
+
+        let index = 0;
+        const textElement = document.getElementById("blinkText");
+
+        setInterval(() => {
+            index = (index + 1) % texts.length;
+            textElement.textContent = texts[index];
+        }, 2000);
+    </script>
 
 </body>
 </html>
